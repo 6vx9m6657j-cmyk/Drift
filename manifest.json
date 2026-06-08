@@ -1,0 +1,21 @@
+{
+  "name": "Motion Vertex",
+  "short_name": "MotionV",
+  "description": "自然環境が音響空間として自己組織化するシステム",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "any",
+  "lang": "ja",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["music", "entertainment"]
+}
