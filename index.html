@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#000000">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon.svg">
+<title>Motion Vertex</title>
+
+<!-- Tone.js (CDN) -->
+<script src="https://unpkg.com/tone@14/build/Tone.js"></script>
+
+<style>
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0; overflow: hidden;
+  background: black; width: 100%; height: 100%;
+  -webkit-user-select: none; user-select: none;
+  -webkit-touch-callout: none;
+}
+canvas {
+  position: fixed;
+  touch-action: none;
+}
+#startButton {
+  position: fixed; z-index: 10;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 52px;
+  font-size: 15px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 300;
+  letter-spacing: .25em;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 2px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+#startButton:active { opacity: .5; }
+</style>
+</head>
+<body>
+
+<button id="startButton">START</button>
+<video id="video" autoplay playsinline muted style="display:none;"></video>
+<canvas id="canvas"></canvas>
+
+<!--
+  読み込み順序（依存関係の順）:
+  1. camera.js  — canvas / video / fitCanvas / startStream
+  2. paths.js   — motion detection / stableVerts / processPaths
+  3. audio.js   — Tone.js engine / initAudio / updateAudio
+  4. visual.js  — render loop / drawScene
+  5. ui.js      — start button / gestures / PWA
+-->
+<script src="camera.js"></script>
+<script src="paths.js"></script>
+<script src="audio.js"></script>
+<script src="visual.js"></script>
+<script src="ui.js"></script>
+
+</body>
+</html>
